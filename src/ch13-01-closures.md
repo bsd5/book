@@ -365,8 +365,8 @@ This code prints:
 
 The reason `sort_by_key` is defined to take an `FnMut` closure is that it calls
 the closure multiple times: once for each item in the slice. The closure `|r|
-r.width` doesn’t capture, mutate, or move out anything from its environment, so
-it meets the trait bound requirements.
+r.width` doesn’t capture or move out anything from its environment, so
+it meets the trait bound requirements given by `FnMut`.
 
 In contrast, Listing 13-8 shows an example of a closure that implements just
 the `FnOnce` trait, because it moves a value out of the environment. The
